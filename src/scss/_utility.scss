@@ -1,0 +1,19 @@
+$max-width: 100px;
+
+.max-width {
+  width: $max-width;
+  margin: 0 auto;
+}
+
+html {
+  font-family: 62.5%;
+  // background-color: red;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}

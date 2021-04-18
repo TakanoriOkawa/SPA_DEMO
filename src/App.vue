@@ -22,4 +22,22 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  width: 130px;
+}
+.header__nav {
+  padding-right: 30px;
+}
+
+.footer {
+  height: 200px;
+  color: white;
+  background-color: black;
+}
+</style>
