@@ -3,6 +3,8 @@
 Vue.jsを使ったSPAのコーポレートサイトを作成しました。
 Three.jsやGSAPなど、アニメーション要素も取り入れました。
 
+URL https://spa-corporate-site.firebaseapp.com/
+
 ## Project setup
 ```
 npm install
