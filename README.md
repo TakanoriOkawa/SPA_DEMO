@@ -1,7 +1,10 @@
 # SPA_DEMOサイト
 
 Vue.jsを使ったSPAのコーポレートサイトを作成しました。
+
 Three.jsやGSAPなど、アニメーション要素も取り入れました。
+
+Firebaseホスティング
 
 URL https://spa-corporate-site.firebaseapp.com/
 
