@@ -1,0 +1,77 @@
+.service,
+.our {
+  flex-direction: column;
+}
+
+.mv {
+  &__text {
+    font-size: 2.2rem;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.header__logo {
+  width: 130px;
+}
+
+.our__title,
+.service__title,
+.Service__title,
+.product__title,
+.ses__title,
+.top__title,
+.table__title,
+.form__title {
+  font-size: $subTitle600Down;
+}
+
+// **** Home ***
+.contents {
+  padding: 0px;
+}
+
+.our {
+  margin-bottom: 0px;
+  &__imgArea {
+    order: 2;
+  }
+
+  &__textArea {
+    order: 1;
+  }
+}
+
+// **** Service ****
+
+.product {
+  &__text {
+    width: 90%;
+  }
+}
+.ses {
+  &__text {
+    width: 90%;
+  }
+}
+
+// **** about ****
+.top {
+  &__wrap {
+    height: 450px;
+  }
+  &__text {
+    width: 90%;
+    font-size: 1.6rem;
+  }
+}
+
+.table {
+  td,
+  th {
+    padding: 10px;
+    vertical-align: middle;
+  }
+}

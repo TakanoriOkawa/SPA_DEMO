@@ -1,19 +1,38 @@
-$max-width: 100px;
+$maxWidth: 1080px;
+$cWhite: #fff;
+$cBlack: #000;
+$cBase: #333;
+$letterSpace: 2.5px;
+$subTitle: 3.5rem;
+$subTitle600Down: 2.5rem;
+
+$cBackGround: rgb(131, 131, 131);
 
 .max-width {
-  width: $max-width;
+  max-width: $maxWidth;
   margin: 0 auto;
 }
 
-html {
-  font-family: 62.5%;
-  // background-color: red;
+.mb-lg {
+  margin-bottom: 80px;
 }
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+
+.mb-sm {
+  margin-bottom: 30px;
 }
-img {
-  width: 100%;
+
+.pb-lg {
+  padding-bottom: 80px;
+}
+
+.pb-sm {
+  padding-bottom: 30px;
+}
+
+.pt-lg {
+  padding-top: 80px;
+}
+
+.pt-sm {
+  padding-top: 30px;
 }

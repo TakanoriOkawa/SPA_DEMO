@@ -4,6 +4,7 @@ import router from "./router";
 
 Vue.config.productionTip = false;
 import 'destyle.css';
+import './scss/main.scss';
 
 new Vue({
   router,

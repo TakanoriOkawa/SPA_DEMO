@@ -1,0 +1,6 @@
+@import './_base';
+
+//PC優先スタイルでつくっちゃったな。
+@media (max-width: 600px) {
+  @import './breakpoints/_600down';
+}

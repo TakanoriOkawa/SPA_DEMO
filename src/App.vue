@@ -9,35 +9,27 @@
         />
       </div>
       <div class="header__nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link> |
-        <router-link to="/service">Service</router-link>
+        <router-link class="header__nav__link" to="/">Home</router-link> |
+        <router-link class="header__nav__link" to="/service"
+          >Service</router-link
+        >
+        |
+        <router-link class="header__nav__link" to="/about">About</router-link>
       </div>
     </header>
+
     <router-view />
 
     <footer class="footer">
-      <p>©︎ TryTechnology 2021- by takanori okawa</p>
+      <div class="footer__nav">
+        <router-link class="footer__nav__link" to="/">Home</router-link> |
+        <router-link class="footer__nav__link" to="/service"
+          >Service</router-link
+        >
+        |
+        <router-link class="footer__nav__link" to="/about">About</router-link>
+      </div>
+      <p class="footer__copy">©︎ TryTechnology 2021- by takanori okawa</p>
     </footer>
   </div>
 </template>
-
-<style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.header__logo {
-  width: 130px;
-}
-.header__nav {
-  padding-right: 30px;
-}
-
-.footer {
-  height: 200px;
-  color: white;
-  background-color: black;
-}
-</style>
