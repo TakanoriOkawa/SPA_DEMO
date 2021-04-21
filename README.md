@@ -1,4 +1,7 @@
-# spa_ar
+# SPA_DEMOサイト
+
+## Vue.jsを使ったSPAコーポレートサイトを作成しました。
+## Three.jsやGSAPなどアニメーション要素を取り入れました。
 
 ## Project setup
 ```
