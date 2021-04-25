@@ -102,7 +102,7 @@ function onResize() {
 function loop(){
   const targetRotY = (scrollY  / innerHeight) * 360;
   rotY += (targetRotY - rotY) * 0.02;
-  sphereMesh.rotation.y = rotY * -0.0005;
+  sphereMesh.rotation.y = rotY * -0.01;
   pointsMesh.rotation.x = rotY *  -0.0005;
   pointsMesh.rotation.y = rotY *  0.0005;
   camera.lookAt( scene.position );
