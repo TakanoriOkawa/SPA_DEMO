@@ -1,5 +1,6 @@
 .service,
-.our {
+.our,
+.news {
   flex-direction: column;
 }
 
@@ -17,11 +18,15 @@ body {
   width: 130px;
 }
 
+//タイトル文字調整
 .our__title,
 .service__title,
+.news__title,
 .Service__title,
 .product__title,
 .ses__title,
+.overseas__title,
+.contract__title,
 .top__title,
 .table__title,
 .form__title {
@@ -44,6 +49,21 @@ body {
   }
 }
 
+.service {
+  margin-bottom: 0px;
+}
+
+.news {
+  margin-bottom: 0px;
+  &__imgArea {
+    order: 2;
+  }
+
+  &__textArea {
+    order: 1;
+  }
+}
+
 // **** Service ****
 
 .product {
@@ -52,6 +72,16 @@ body {
   }
 }
 .ses {
+  &__text {
+    width: 90%;
+  }
+}
+.contract {
+  &__text {
+    width: 90%;
+  }
+}
+.overseas {
   &__text {
     width: 90%;
   }

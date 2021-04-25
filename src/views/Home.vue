@@ -58,7 +58,10 @@
       <div class="news">
         <div class="news__textArea scale">
           <div class="news__title">NEWS</div>
-          <div class="news__text">弊社の最新情報を掲載しています。</div>
+          <div class="news__text">
+            弊社の最新情報を掲載しています。エンジニアチームの技術ブログ「Try
+            Blog」も随時更新中です。
+          </div>
         </div>
 
         <div class="news__imgArea scale">
