@@ -203,6 +203,7 @@ button {
   display: flex;
 
   @extend .max-width;
+  @extend .mb-lg;
 
   &__imgArea {
     flex-basis: 50%;
@@ -284,6 +285,88 @@ button {
 
   &__textArea {
     flex-basis: 50%;
+    background-color: $cWhite;
+  }
+}
+
+.news {
+  display: flex;
+
+  @extend .max-width;
+  @extend .mb-lg;
+
+  &__imgArea {
+    flex-basis: 50%;
+    order: 1;
+    height: 400px;
+  }
+
+  &__title,
+  &__text {
+    text-align: center;
+
+    @extend .pt-sm;
+  }
+
+  &__text {
+    margin: 0 auto 25px;
+    width: 90%;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    border: 1px solid $cBase;
+    letter-spacing: $letterSpace;
+    transition: all 0.4s ease;
+
+    &:hover {
+      border-radius: 10px;
+      background-color: $cBlack;
+      color: $cWhite;
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      color: $cBlack;
+      content: '×';
+      font-size: 4rem;
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.4s ease, z-index 0.3s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover::after {
+      z-index: 0;
+      opacity: 1;
+      transform: translate(400%, -50%) rotate(180deg);
+    }
+    &:hover::before {
+      z-index: 0;
+      opacity: 1;
+      transform: translate(-500%, -50%) rotate(-180deg);
+    }
+  }
+
+  &__title {
+    letter-spacing: $letterSpace;
+    font-size: $subTitle;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__textArea {
+    flex-basis: 50%;
+    order: 2;
     background-color: $cWhite;
   }
 }
@@ -436,6 +519,60 @@ button {
     left: 0;
     z-index: -10;
     background: url(../assets/image_01.jpg) no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 15px $cBase;
+    content: '';
+    opacity: 0.8;
+  }
+
+  &__imgArea {
+    width: 300px;
+  }
+
+  &__title {
+    color: $cWhite;
+    font-size: $subTitle;
+
+    @extend .mb-sm;
+  }
+
+  &__text {
+    margin: 0 auto;
+    padding: 20px;
+    width: 70%;
+    border: 1px solid $cWhite;
+    color: $cWhite;
+  }
+}
+
+.overseas {
+  position: relative;
+
+  @extend .max-width;
+  @extend .mb-lg;
+  @extend .pb-lg;
+  @extend .pt-lg;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -5;
+    background-color: $cBase;
+    content: '';
+    opacity: 0.45;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -10;
+    background: url(../assets/image_07.jpg) no-repeat;
     background-size: cover;
     box-shadow: 0 0 15px $cBase;
     content: '';

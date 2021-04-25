@@ -34,12 +34,11 @@
         </div>
       </div>
     </div>
-    <div class="contract appear">
-      <div class="contract__textArea">
-        <div class="contract__title">受託開発事業</div>
-        <div class="contract__text">
-          様々なシーンでの受託開発を得意としています。
-          トータルソリューションのご提案から個別システム開発まで、幅広いニーズにご対応が可能な少数精鋭のエンジニアチームが対応します。
+    <div class="overseas appear">
+      <div class="overseas__textArea">
+        <div class="overseas__title">海外事業</div>
+        <div class="overseas__text">
+          アジアを中心に、事業拡大中です。現地の技術者と共同で開発業務に当たっています。
         </div>
       </div>
     </div>
@@ -49,7 +48,7 @@
 <script>
 import { startThree, removeThree } from '../js/pointsThree';
 import Scroll from '../js/scroll';
-import { startAnimation, tweenAnimation } from '../js/tween';
+import { startAnimation, moveAnimation } from '../js/tween';
 
 export default {
   data() {
@@ -61,7 +60,7 @@ export default {
     _inviewAnima(el, inview) {
       if (inview) {
         el.classList.add('.inview');
-        tweenAnimation(el);
+        moveAnimation(el);
       }
     },
   },
@@ -72,7 +71,7 @@ export default {
     const _this = this;
     setTimeout(function () {
       this.ob = new Scroll('.appear', _this._inviewAnima);
-    }, 1400);
+    }, 1500);
   },
 
   destroyed() {
@@ -86,7 +85,8 @@ export default {
 .Service__title,
 .product,
 .ses,
-.contract {
+.contract,
+.overseas {
   opacity: 0;
 }
 

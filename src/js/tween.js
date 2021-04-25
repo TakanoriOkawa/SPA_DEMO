@@ -1,17 +1,18 @@
 import { gsap, Back} from 'gsap';
 
-const animationSpeed = 0.7;
+const animationSpeed = 1;
+const headerSpeed = 0.7;
 
 function startAnimation(){
   const tl =  gsap.timeline();
 
   tl.from('.header__logo', {
-    duration:animationSpeed,
+    duration:headerSpeed,
     x:-200,
     opacity: 0,
     ease: Back.easeIn,
   }).from('.header__nav',{
-    duration:animationSpeed,
+    duration:headerSpeed,
     x:200,
     opacity:0,
     ease: Back.easeIn,
@@ -22,12 +23,12 @@ function mvAnimation(){
   const tl =  gsap.timeline();
   
   tl.from('.header__logo', {
-    duration:animationSpeed,
+    duration:headerSpeed,
     x:-200,
     opacity: 0,
     ease: Back.easeIn,
   }).from('.header__nav',{
-    duration:animationSpeed,
+    duration:headerSpeed,
     x:200,
     opacity:0,
     ease: Back.easeIn,
@@ -46,7 +47,7 @@ function mvAnimation(){
   });
 }
 
-function tweenAnimation(el){
+function moveAnimation(el){
   gsap.fromTo(el,{
     opacity:0,
     y:150,
@@ -57,5 +58,41 @@ function tweenAnimation(el){
     opacity:1,
   })
 }
+
+function scaleAnimation(el){
+  gsap.fromTo(el,{
+    opacity:0,
+    scale:0,
+  },{
+    duration:animationSpeed,
+    scale:1,
+    ease: Back.easeIn,
+    opacity:1,
+  })
+}
+
+function rightAnimation(el){
+  gsap.fromTo(el,{
+    opacity:0,
+    x:"100%",
+  },{
+    duration:animationSpeed,
+    x:0,
+    ease: Back.easeIn,
+    opacity:1,
+  })
+}
+
+function leftAnimation(el){
+  gsap.fromTo(el,{
+    opacity:0,
+    x: "-100%",
+  },{
+    duration:animationSpeed,
+    x:0,
+    ease: Back.easeIn,
+    opacity:1,
+  })
+}
   
-export { tweenAnimation,startAnimation,mvAnimation };
+export { moveAnimation,startAnimation,mvAnimation,scaleAnimation,rightAnimation,leftAnimation };

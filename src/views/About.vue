@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import { startAnimation, tweenAnimation } from '../js/tween';
+import { startAnimation, scaleAnimation } from '../js/tween';
 import Scroll from '../js/scroll';
 
 export default {
@@ -72,7 +72,7 @@ export default {
     _inviewAnima(el, inview) {
       if (inview) {
         el.classList.add('.inview');
-        tweenAnimation(el);
+        scaleAnimation(el);
       }
     },
   },
@@ -82,7 +82,7 @@ export default {
     const _this = this;
     setTimeout(function () {
       this.ob = new Scroll('.appear', _this._inviewAnima);
-    }, 1400);
+    }, 1500);
   },
 };
 </script>

@@ -11,7 +11,7 @@
 
     <div class="contents">
       <div class="our">
-        <div class="our__textArea appear">
+        <div class="our__textArea right">
           <div class="our__title">ABOUT US</div>
           <div class="our__text">
             私たちは、従来の開発の在り方を見直し、
@@ -22,8 +22,12 @@
             <router-link to="/about" class="our__link"> About </router-link>
           </div>
         </div>
-        <div class="our__imgArea appear">
-          <img src="../assets/image_02.jpg" class="our__img" alt="" />
+        <div class="our__imgArea left">
+          <img
+            src="../assets/image_02.jpg"
+            class="our__img"
+            alt="私たちについて"
+          />
         </div>
       </div>
       <div class="service">
@@ -50,32 +54,69 @@
           />
         </div>
       </div>
+
+      <div class="news">
+        <div class="news__textArea scale">
+          <div class="news__title">NEWS</div>
+          <div class="news__text">弊社の最新情報を掲載しています。</div>
+        </div>
+
+        <div class="news__imgArea scale">
+          <img src="../assets/image_01.jpg" alt="ニュース" class="news__img" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { start, remove } from '../js/topThree';
-import { tweenAnimation, mvAnimation } from '../js/tween';
+import {
+  moveAnimation,
+  scaleAnimation,
+  mvAnimation,
+  rightAnimation,
+  leftAnimation,
+} from '../js/tween';
 import Scroll from '../js/scroll';
 
 export default {
   data() {
     return {
       ob: '',
+      ob2: '',
+      ob3: '',
+      ob4: '',
     };
   },
   methods: {
     _inviewAnima(el, inview) {
       if (inview) {
-        el.classList.add('.inview');
-        tweenAnimation(el);
+        moveAnimation(el);
+      }
+    },
+    _scaleAnima(el, inview) {
+      if (inview) {
+        scaleAnimation(el);
+      }
+    },
+    _rightAnima(el, inview) {
+      if (inview) {
+        rightAnimation(el);
+      }
+    },
+    _leftAnima(el, inview) {
+      if (inview) {
+        leftAnimation(el);
       }
     },
   },
 
   mounted() {
     this.ob = new Scroll('.appear', this._inviewAnima);
+    this.ob2 = new Scroll('.right', this._rightAnima);
+    this.ob3 = new Scroll('.left', this._leftAnima);
+    this.ob4 = new Scroll('.scale', this._scaleAnima);
     start();
     mvAnimation();
   },
@@ -90,7 +131,9 @@ export default {
 .our__textArea,
 .our__imgArea,
 .service__textArea,
-.service__imgArea {
+.service__imgArea,
+.news__textArea,
+.news__imgArea {
   opacity: 0;
 }
 </style>
