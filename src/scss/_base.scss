@@ -292,8 +292,6 @@ button {
 .Service {
   text-align: center;
 
-  @extend .max-width;
-
   &__title {
     position: relative;
     display: inline-block;
@@ -302,33 +300,14 @@ button {
     letter-spacing: $letterSpace;
 
     @extend .mb-sm;
-
-    // &::before {
-    //   position: absolute;
-    //   top: 0;
-    //   left: -40px;
-    //   padding: 10px;
-    //   border: 1px solid black;
-    //   content: '';
-    // }
-
-    // &::after {
-    //   position: absolute;
-    //   top: 0;
-    //   right: -40px;
-    //   padding: 10px;
-    //   border: 1px solid black;
-    //   content: '';
-    // }
   }
 }
 
 .product {
   position: relative;
   width: 100%;
-  // display: flex;
-  // flex-direction: column;
 
+  @extend .max-width;
   @extend .mb-lg;
   @extend .pb-lg;
   @extend .pt-lg;
@@ -364,7 +343,6 @@ button {
     font-size: $subTitle;
 
     @extend .mb-sm;
-    // box-shadow: 0px 0px 5px 5px gray;
   }
 
   &__text {
@@ -378,9 +356,8 @@ button {
 
 .ses {
   position: relative;
-  // display: flex;
-  // flex-direction: column;
 
+  @extend .max-width;
   @extend .mb-lg;
   @extend .pb-lg;
   @extend .pt-lg;
@@ -405,6 +382,60 @@ button {
     left: 0;
     z-index: -10;
     background: url(../assets/image_04.jpg) no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 15px $cBase;
+    content: '';
+    opacity: 0.8;
+  }
+
+  &__imgArea {
+    width: 300px;
+  }
+
+  &__title {
+    color: $cWhite;
+    font-size: $subTitle;
+
+    @extend .mb-sm;
+  }
+
+  &__text {
+    margin: 0 auto;
+    padding: 20px;
+    width: 70%;
+    border: 1px solid $cWhite;
+    color: $cWhite;
+  }
+}
+
+.contract {
+  position: relative;
+
+  @extend .max-width;
+  @extend .mb-lg;
+  @extend .pb-lg;
+  @extend .pt-lg;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -5;
+    background-color: $cBase;
+    content: '';
+    opacity: 0.45;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -10;
+    background: url(../assets/image_01.jpg) no-repeat;
     background-size: cover;
     box-shadow: 0 0 15px $cBase;
     content: '';

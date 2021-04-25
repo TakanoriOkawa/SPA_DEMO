@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { start, remove } from '../js/three';
+import { start, remove } from '../js/topThree';
 import { tweenAnimation, mvAnimation } from '../js/tween';
 import Scroll from '../js/scroll';
 
