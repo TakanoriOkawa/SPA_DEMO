@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { startThree, removeThree } from '../js/pointsThree';
+import { pointsThreeStart, pointsThreeRemove } from '../js/pointsThree';
 import Scroll from '../js/scroll';
 import { startAnimation, moveAnimation } from '../js/tween';
 
@@ -66,7 +66,7 @@ export default {
   },
 
   mounted() {
-    startThree();
+    pointsThreeStart();
     startAnimation();
     const _this = this;
     setTimeout(function () {
@@ -75,7 +75,7 @@ export default {
   },
 
   destroyed() {
-    removeThree();
+    pointsThreeRemove();
   },
 };
 </script>

@@ -73,13 +73,13 @@
 </template>
 
 <script>
-import { start, remove } from '../js/topThree';
+import { topThreeStart, topThreeRemove } from '../js/topThree';
 import {
   moveAnimation,
   scaleAnimation,
-  mvAnimation,
   rightAnimation,
   leftAnimation,
+  topAnimation,
 } from '../js/tween';
 import Scroll from '../js/scroll';
 
@@ -116,16 +116,17 @@ export default {
   },
 
   mounted() {
+    topThreeStart();
+    topAnimation();
+
     this.ob = new Scroll('.appear', this._inviewAnima);
     this.ob2 = new Scroll('.right', this._rightAnima);
     this.ob3 = new Scroll('.left', this._leftAnima);
     this.ob4 = new Scroll('.scale', this._scaleAnima);
-    start();
-    mvAnimation();
   },
 
   destroyed() {
-    remove();
+    topThreeRemove();
   },
 };
 </script>
