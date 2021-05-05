@@ -12,7 +12,7 @@ let rotY = 0;
 
 let texture;
 
-function startThree(){
+function pointsThreeStart(){
   //シーン、レンダラーの初期化
   initThree();
   //カメラ初期化
@@ -112,8 +112,8 @@ function loop(){
 }
 
 //削除用
-function removeThree(){
+function pointsThreeRemove(){
   cancelAnimationFrame(id);
 }
 
-export {startThree,removeThree};
+export {pointsThreeStart,pointsThreeRemove};

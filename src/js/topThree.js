@@ -11,7 +11,7 @@ let yValue = 0.004;
 let zValue = 0.004;
 
 
-function start(){
+function topThreeStart(){
   //シーン、レンダラーの初期化
   initThree();
   //カメラ初期化
@@ -151,8 +151,8 @@ function onResize() {
 }
 
 //削除用
-function remove(){
+function topThreeRemove(){
   cancelAnimationFrame(id);
 }
 
-export {start,remove};
+export {topThreeStart,topThreeRemove};
