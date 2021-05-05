@@ -7,17 +7,192 @@
         class="header__logo__img"
       />
     </div>
-    <div class="header__nav">
-      <router-link class="header__nav__link" to="/">Home</router-link> |
-      <router-link class="header__nav__link" to="/service">Service</router-link>
-      |
-      <router-link class="header__nav__link" to="/about">About</router-link>
-    </div>
+
+    <ul class="header__nav">
+      <router-link to="/">
+        <li @click="resetAnimation">
+          <div class="nav__en" v-html="navEn[0]"></div>
+          <div class="nav__jp" v-html="navJp[0]"></div>
+        </li>
+      </router-link>
+
+      <router-link class="header__nav__link" to="/service">
+        <li @click="resetAnimation">
+          <div class="nav__en" v-html="navEn[1]"></div>
+          <div class="nav__jp" v-html="navJp[1]"></div>
+        </li>
+      </router-link>
+
+      <router-link class="header__nav__link" to="/about">
+        <li @click="resetAnimation">
+          <div class="nav__en" v-html="navEn[2]"></div>
+          <div class="nav__jp" v-html="navJp[2]"></div>
+        </li>
+      </router-link>
+    </ul>
   </header>
 </template>
 
 <script>
+import gsap from 'gsap';
+
 export default {
   name: 'HeaderNav',
+  data() {
+    return {
+      navsJp: ['ホーム', '事業内容', '私たちについて'],
+      navsEn: ['Home', 'Service', 'AboutUs'],
+      navJp: [],
+      navEn: [],
+      charsJp: '',
+      charsEn: '',
+    };
+  },
+
+  methods: {
+    // 毎回リンクした場合、gsap.setで元に戻す。
+    resetAnimation() {
+      console.log('reset');
+      gsap.set('.en', {
+        opacity: 1,
+        y: 0,
+      });
+      gsap.set('.jp', {
+        opacity: 0,
+        y: -40,
+      });
+    },
+    init() {
+      //連想配列の長さを取得
+      for (let i = 0; i < Object.keys(this.navsJp).length; i++) {
+        this.charsJp = this.navsJp[i].trim().split(''); // 分割
+        this.charsEn = this.navsEn[i].trim().split('');
+
+        this.navJp.push(this._splitTextJp(this.charsJp)); // html文字列を返して、配列に追加
+        this.navEn.push(this._splitTextEn(this.charsEn));
+      }
+      //gsapアニメーション実行
+      this._mouseoverAnimation();
+    },
+
+    _splitTextJp(chars) {
+      return chars.reduce((acc, curr) => {
+        curr = curr.replace(/\s+/, '&nbsp;');
+        //styleでinline-blockを当てないとxyアニメーションしない spanを作った段階でopacity0にしておかないと後からはできない。
+        return `${acc}<span class="char jp" style="display:inline-block; opacity: 0 ;transform: translate(0px, -40px)">${curr}</span>`;
+      }, '');
+    },
+
+    _splitTextEn(chars) {
+      return chars.reduce((acc, curr) => {
+        curr = curr.replace(/\s+/, '&nbsp;');
+        return `${acc}<span class="char en" style="display:inline-block;">${curr}</span>`;
+      }, '');
+    },
+
+    _mouseoverAnimation() {
+      const li = document.querySelectorAll('li'); //各ナビの全体を囲むliを取得
+      const en_nav = document.querySelectorAll('.nav__en'); // 各navを取得。
+      const jp_nav = document.querySelectorAll('.nav__jp'); // 各navを取得。
+
+      // ナビゲーションの数だけループ
+      for (let i = 0; i < en_nav.length; i++) {
+        //マウスが各li要素に入ったとき
+        li[i].addEventListener('mouseenter', () => {
+          //英語の文字をアニメーションさせる。
+          en_nav[i].children.forEach((c, i) => {
+            gsap.to(c, {
+              duration: 0.4,
+              delay: 0.1 * i,
+              y: 40,
+              opacity: 0,
+              ease: 'Power4.easeInOut',
+            });
+          });
+          //日本語の文字をアニメーションさせる。
+          jp_nav[i].children.forEach((c, i) => {
+            gsap.to(c, {
+              duration: 0.4,
+              delay: 0.1 * i,
+              y: 0,
+              opacity: 1,
+              ease: 'Power4.easeInOut',
+            });
+          });
+        });
+
+        //マウスが各li要素から出たとき。
+        li[i].addEventListener('mouseleave', () => {
+          //英語の文字をアニメーションさせる。
+          en_nav[i].children.forEach((c, i) => {
+            gsap.to(c, {
+              duration: 0.4,
+              delay: 0.1 * i,
+              y: 0,
+              opacity: 1,
+              ease: 'Power4.easeInOut',
+            });
+          });
+          //日本語の文字をアニメーションさせる。
+          jp_nav[i].children.forEach((c, i) => {
+            gsap.to(c, {
+              duration: 0.4,
+              delay: 0.1 * i,
+              y: -40,
+              opacity: 0,
+              ease: 'Power4.easeInOut',
+            });
+          });
+        });
+      }
+    },
+  },
+  mounted() {
+    this.init();
+    console.log('aaa');
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+* {
+  font-size: 18px;
+}
+
+ul {
+  position: relative;
+  list-style: none;
+}
+
+li {
+  position: relative;
+  display: inline-block;
+  padding: 14px;
+  margin: 6px;
+  // background-color: rgba(255, 189, 189, 0.3);
+  text-align: center;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid black;
+  }
+}
+
+.nav__en {
+  width: 100%;
+  letter-spacing: 3px;
+}
+
+.nav__jp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  font-size: 16px;
+  transform: translate(-50%, -50%);
+  letter-spacing: 1px;
+}
+</style>
