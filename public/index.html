@@ -15,7 +15,9 @@
   <body>
     <div id="app"></div>
     <!-- 読み込み時のアニメーションのためのdiv要素 -->
-    <div class="load">
+    <!-- ページ読み込み時にJSのopacity読み込みが間に合わない場合があるので、
+    load要素に直接記述するといい。 -->
+    <div class="load" style="opacity: 0">
       <h1 class="load__title">
         <span class="char">T</span>
         <span class="char">R</span>
