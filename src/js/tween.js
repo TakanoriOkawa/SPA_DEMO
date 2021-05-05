@@ -19,9 +19,46 @@ function startAnimation(){
   })
 }
 
-function mvAnimation(){
+function topAnimation(){
   const tl =  gsap.timeline();
-  
+  console.log("gagag");
+
+  tl.set('#app',{
+    visibility:'hidden',
+    opacity:0,
+  })
+  tl.set('.load',{
+    visibility:'visible',
+    opacity: 0.7,
+    right:'100%'
+  })
+
+  //読み込み時アニメーションスタート
+  tl.to('.load', {
+    delay: 0.4,
+    duration: 0.6,
+    right: 0,
+  });
+  tl.from('.char', {
+    duration: 1,
+    stagger: { each: 0.03 },
+    y: 200,
+    opacity:0,
+  });
+  tl.to('.load', {
+    duration: 0.6,
+    opacity: 0,
+  });
+  tl.to('.load', {
+    duration: 0.001,
+    visibility: 'hidden',
+  });
+  tl.to('#app',{
+    duration: 0.01,
+    opacity:1,
+    visibility: 'visible',
+  })
+
   tl.from('.header__logo', {
     duration:headerSpeed,
     x:-200,
@@ -95,4 +132,4 @@ function leftAnimation(el){
   })
 }
   
-export { moveAnimation,startAnimation,mvAnimation,scaleAnimation,rightAnimation,leftAnimation };
+export { moveAnimation,startAnimation,topAnimation,scaleAnimation,rightAnimation,leftAnimation };
