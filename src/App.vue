@@ -1,23 +1,7 @@
 <template>
   <div id="app">
-    <header class="header">
-      <div class="header__logo">
-        <img
-          src="./assets/header_logo.png"
-          alt="TryTechnology"
-          class="header__logo__img"
-        />
-      </div>
-      <div class="header__nav">
-        <router-link class="header__nav__link" to="/">Home</router-link> |
-        <router-link class="header__nav__link" to="/service"
-          >Service</router-link
-        >
-        |
-        <router-link class="header__nav__link" to="/about">About</router-link>
-      </div>
-    </header>
-
+    <HeaderNav></HeaderNav>
+    <!-- <header-nav></header-nav> -->
     <router-view />
 
     <footer class="footer">
@@ -33,3 +17,29 @@
     </footer>
   </div>
 </template>
+
+<script>
+import HeaderNav from './components/HeaderNav.vue';
+
+export default {
+  name: 'App',
+  data() {
+    return {
+      //最初のApp.vueが読み込まれているかどうかのフラグ
+      //これがfalseの場合は、最初の読み込みアニメーションを行う。trueの場合は、ロゴなどのアニメーション始まる。
+    };
+  },
+  components: {
+    HeaderNav,
+  },
+  mounted() {
+    // グローバル変数を用意する。
+    // （参考）https://jp.vuejs.org/v2/cookbook/adding-instance-properties.html
+    // 最初の読み込みがされたらture
+    // Vue.prototype.$loadApp = true;
+    // console.log(this.$loadApp);
+    // Gsapの各アニメーションをどうセットしていくかが本当にわからん。
+    // 例えば、最初の読み込みのtimelineとページ繊維のタイムラインの正しい分け方など。
+  },
+};
+</script>
