@@ -3,7 +3,6 @@ import * as THREE from 'three/build/three';
 let renderer,scene,camera;
 let id;
 
-let sphereGeometry,sphereMaterial,sphereMesh;
 let pointsGeometry,pointsMaterial,pointsMesh;
 
 let canvasSizeX = 0;
@@ -55,16 +54,6 @@ function initLoader(){
 }
 
 function initObject(){
-  sphereGeometry = new THREE.SphereGeometry(3,26,26);
-  sphereMaterial = new THREE.MeshBasicMaterial({
-    opacity:0.8,
-    color:0x111133,
-    wireframe:true,
-  })
-
-  sphereMesh = new THREE.Mesh(sphereGeometry,sphereMaterial);
-  scene.add(sphereMesh);
-
   pointsGeometry = new THREE.BufferGeometry();
   const pointsCount = 7000;
   const posArray = new Float32Array(pointsCount * 3);
@@ -102,7 +91,6 @@ function onResize() {
 function loop(){
   const targetRotY = (scrollY  / innerHeight) * 360;
   rotY += (targetRotY - rotY) * 0.02;
-  sphereMesh.rotation.y = rotY * -0.01;
   pointsMesh.rotation.x = rotY *  -0.0005;
   pointsMesh.rotation.y = rotY *  0.0005;
   camera.lookAt( scene.position );
