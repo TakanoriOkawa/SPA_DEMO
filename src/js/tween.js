@@ -2,7 +2,7 @@ import { gsap, Back} from 'gsap';
 import { moveScroll } from '../js/scrollControll';
 
 const animationSpeed = 1;
-const headerSpeed = 1;
+const headerSpeed = 0.4;
 
 function startAnimation(){
   const tl =  gsap.timeline();
@@ -31,7 +31,10 @@ function topAnimation(){
   })
   tl.set('.circle',{
     transformOrigin: 'center',
+    strokeDashoffset: 3000,
+    rotate:0,
   })
+
   // 読み込み時アニメーションスタート
   tl.to('.load', {
     delay: 0.4,
@@ -39,38 +42,56 @@ function topAnimation(){
     right: 0,
   });
 
-  // svgをgsapで動かすとうまくいかない。
+  // svgアニメーション
   tl.to('.circle',{
     duration:2,
     strokeDashoffset: 0,
     rotate:360,
   })
 
-  tl.from('.char', {
-    duration: 1,
-    stagger: { each: 0.03 },
-    y: 200,
+  tl.from('.load__char', {
+    duration: 0.6,
+    stagger: { each: 0.08 },
+    x: 140,
+    scale:0.4,
     opacity:0,
   });
+
+  //カラーフラッシュ
+  tl.to(".load__char", {
+    duration: 0.5,
+    color: "skyblue",
+    stagger: { each: 0.01, from: "random" },
+  });
+  tl.to(".load__char", {
+    duration: 0.5,
+    color: "white",
+    stagger: { each: 0.01, from: "random" },
+  });
+
+  //黒背景 消える
   tl.to('.load', {
     duration: 0.6,
     opacity: 0,
   });
+  // 黒背景がコンテンツにかぶるので、非表示に変更
   tl.to('.load', {
     duration: 0.001,
     visibility: 'hidden',
   });
+  // メインのコンテンツを表示
   tl.to('#app',{
-    duration: 0.01,
+    duration: 0.001,
     opacity:1,
     visibility: 'visible',
   });
+  // ヘッダーの透明度をあげる
   tl.from('.header',{
     duration:headerSpeed,
     opacity:0,
     color:'blue',
     ease: Back.easeIn,
-    onComplete:mainVisualAnimation,
+    onComplete:mainVisualAnimation, // メインthreeの表示へ
   })
 }
 
@@ -83,6 +104,7 @@ function mainVisualAnimation(){
       ease: Back.easeIn,
       opacity: 1,
     })
+    // mvテキスト ランダム出現
     tl.from('.mv__char', {
       duration:animationSpeed,
       y:150,
@@ -90,7 +112,7 @@ function mainVisualAnimation(){
       ease: Back.easeIn,
       opacity: 0,
       color:'skyblue',
-      // scale: 2,
+      scale: 2,
       onComplete:moveScroll, //scroll解除
     });
 }
@@ -142,5 +164,24 @@ function leftAnimation(el){
     opacity:1,
   })
 }
+
+function loopFashText(){
+  const tl = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 0.3,
+    yoyo: true,
+    defaults: { duration: 0.5, ease: "power4.out" },
+  });
+
+  tl.to(".mv__char", {
+    color: "skyblue",
+    stagger: { each: 0.01, from: "random" },
+  });
+  tl.to(".mv__char", {
+    color: "white",
+    stagger: { each: 0.01, from: "random" },
+  });
+}
   
-export { moveAnimation,startAnimation,topAnimation,scaleAnimation,rightAnimation,leftAnimation };
+export { moveAnimation,startAnimation,topAnimation,scaleAnimation,rightAnimation,leftAnimation,loopFashText};
+// export { moveAnimation,startAnimation,topAnimation,scaleAnimation,rightAnimation,loopFashText};
