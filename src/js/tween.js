@@ -6,18 +6,6 @@ const headerSpeed = 1;
 
 function startAnimation(){
   const tl =  gsap.timeline();
-  // tl.from('.header__logo', {
-  //   duration:headerSpeed,
-  //   x:-200,
-  //   opacity: 0,
-  //   ease: Back.easeIn,
-  // }).from('.header__nav',{
-  //   duration:headerSpeed,
-  //   x:200,
-  //   opacity:0,
-  //   ease: Back.easeIn,
-  // })
-
   tl.from('.header',{
     duration:headerSpeed,
     opacity:0,
@@ -28,7 +16,9 @@ function startAnimation(){
 
 function topAnimation(){
   const tl =  gsap.timeline();
-
+  tl.set('.mv',{
+    opacity:0
+  })
   tl.set('#app',{
     visibility:'hidden',
     opacity:0,
@@ -69,36 +59,30 @@ function topAnimation(){
     opacity:0,
     color:'blue',
     ease: Back.easeIn,
+    onComplete:mainVisualAnimation,
   })
 
-  //mvアニメーション
-  // tl.from('.header__logo', {
-  //   duration:headerSpeed,
-  //   x:-200,
-  //   opacity: 0,
-  //   ease: Back.easeIn,
-  // }).from('.header__nav__link',{
-  //   duration:headerSpeed,
-  //   stagger:0.2,
-  //   x:200,
-  //   opacity:0,
-  //   ease: Back.easeIn,
-  // })
+}
 
-
-  tl.from('.mv', {
-    duration:animationSpeed,
-    ease: Back.easeIn,
-    opacity: 0,
-  })
-  tl.from('.mv__text', {
-    duration:animationSpeed,
-    y:150,
-    ease: Back.easeIn,
-    opacity: 0,
-    scale: 2,
-    onComplete:moveScroll,
-  });
+function mainVisualAnimation(){
+  const tl =  gsap.timeline();
+  console.log("メインビジュアル");
+    //mvアニメーション
+    tl.to('.mv', {
+      duration:animationSpeed,
+      ease: Back.easeIn,
+      opacity: 1,
+    })
+    tl.from('.mv__char', {
+      duration:animationSpeed,
+      y:150,
+      stagger:{each:0.02, from: 'random'},
+      ease: Back.easeIn,
+      opacity: 0,
+      color:'skyblue',
+      // scale: 2,
+      onComplete:moveScroll, //scroll解除
+    });
 }
 
 function moveAnimation(el){
