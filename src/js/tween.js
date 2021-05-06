@@ -1,27 +1,33 @@
 import { gsap, Back} from 'gsap';
+import { moveScroll } from '../js/scrollControll';
 
 const animationSpeed = 1;
-const headerSpeed = 0.7;
+const headerSpeed = 1;
 
 function startAnimation(){
   const tl =  gsap.timeline();
+  // tl.from('.header__logo', {
+  //   duration:headerSpeed,
+  //   x:-200,
+  //   opacity: 0,
+  //   ease: Back.easeIn,
+  // }).from('.header__nav',{
+  //   duration:headerSpeed,
+  //   x:200,
+  //   opacity:0,
+  //   ease: Back.easeIn,
+  // })
 
-  tl.from('.header__logo', {
+  tl.from('.header',{
     duration:headerSpeed,
-    x:-200,
-    opacity: 0,
-    ease: Back.easeIn,
-  }).from('.header__nav',{
-    duration:headerSpeed,
-    x:200,
     opacity:0,
+    color:'blue',
     ease: Back.easeIn,
   })
 }
 
 function topAnimation(){
   const tl =  gsap.timeline();
-  console.log("gagag");
 
   tl.set('#app',{
     visibility:'hidden',
@@ -29,11 +35,11 @@ function topAnimation(){
   })
   tl.set('.load',{
     visibility:'visible',
-    opacity: 0.7,
+    opacity: 1,
     right:'100%'
   })
 
-  //読み込み時アニメーションスタート
+  // 読み込み時アニメーションスタート
   tl.to('.load', {
     delay: 0.4,
     duration: 0.6,
@@ -57,30 +63,41 @@ function topAnimation(){
     duration: 0.01,
     opacity:1,
     visibility: 'visible',
+  });
+  tl.from('.header',{
+    duration:headerSpeed,
+    opacity:0,
+    color:'blue',
+    ease: Back.easeIn,
   })
 
-  tl.from('.header__logo', {
-    duration:headerSpeed,
-    x:-200,
-    opacity: 0,
-    ease: Back.easeIn,
-  }).from('.header__nav',{
-    duration:headerSpeed,
-    x:200,
-    opacity:0,
-    ease: Back.easeIn,
-  })
-  .from('.mv', {
+  //mvアニメーション
+  // tl.from('.header__logo', {
+  //   duration:headerSpeed,
+  //   x:-200,
+  //   opacity: 0,
+  //   ease: Back.easeIn,
+  // }).from('.header__nav__link',{
+  //   duration:headerSpeed,
+  //   stagger:0.2,
+  //   x:200,
+  //   opacity:0,
+  //   ease: Back.easeIn,
+  // })
+
+
+  tl.from('.mv', {
     duration:animationSpeed,
     ease: Back.easeIn,
     opacity: 0,
   })
-  .from('.mv__text', {
+  tl.from('.mv__text', {
     duration:animationSpeed,
     y:150,
     ease: Back.easeIn,
     opacity: 0,
     scale: 2,
+    onComplete:moveScroll,
   });
 }
 
