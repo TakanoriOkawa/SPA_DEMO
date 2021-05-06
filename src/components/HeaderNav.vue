@@ -149,7 +149,6 @@ export default {
   },
   mounted() {
     this.init();
-    console.log('aaa');
   },
 };
 </script>
@@ -169,7 +168,6 @@ li {
   display: inline-block;
   padding: 14px;
   margin: 6px;
-  // background-color: rgba(255, 189, 189, 0.3);
   text-align: center;
 
   &::after {
