@@ -7,6 +7,8 @@
 .mv {
   &__text {
     font-size: 2.2rem;
+    width: 95%;
+    margin: 0 auto;
   }
 }
 
@@ -103,5 +105,16 @@ body {
   th {
     padding: 10px;
     vertical-align: middle;
+  }
+}
+
+// loadアニメーション
+.load {
+  &__title {
+    margin: 0 auto;
+    width: 95%;
+    text-align: center;
+    font-size: 38px;
+    line-height: 3;
   }
 }
