@@ -1,13 +1,6 @@
 <template>
   <div class="home">
-    <div class="mv">
-      <div class="mv__canvas">
-        <canvas class="mv__mainCanvas"></canvas>
-      </div>
-      <h2 class="mv__text">
-        先端技術で世界をリードする会社<br />Try Technology
-      </h2>
-    </div>
+    <main-visual></main-visual>
 
     <div class="contents">
       <div class="our">
@@ -82,6 +75,8 @@ import {
   topAnimation,
 } from '../js/tween';
 import Scroll from '../js/scroll';
+import { stopScroll } from '../js/scrollControll';
+import MainVisual from '../components/MainVisual';
 
 export default {
   data() {
@@ -114,10 +109,14 @@ export default {
       }
     },
   },
+  components: {
+    MainVisual,
+  },
 
   mounted() {
-    topThreeStart();
-    topAnimation();
+    stopScroll(); // マウススクロール停止
+    topAnimation(); // GSAPアニメーション
+    topThreeStart(); // THREEアニメーション
 
     this.ob = new Scroll('.appear', this._inviewAnima);
     this.ob2 = new Scroll('.right', this._rightAnima);
@@ -126,7 +125,7 @@ export default {
   },
 
   destroyed() {
-    topThreeRemove();
+    topThreeRemove(); // THREEアニメーション削除
   },
 };
 </script>
