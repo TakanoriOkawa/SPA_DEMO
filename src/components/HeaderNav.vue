@@ -52,14 +52,14 @@ export default {
   methods: {
     // 毎回リンクした場合、gsap.setで元に戻す。
     resetAnimation() {
-      console.log('reset');
-      gsap.set('.en', {
+      // console.log('setではなくtoにしたらうまくいった、setとの相性があるのか？');
+      gsap.to('.en', {
         opacity: 1,
         y: 0,
       });
-      gsap.set('.jp', {
+      gsap.to('.jp', {
         opacity: 0,
-        y: -40,
+        y: -30,
       });
     },
     init() {
@@ -79,7 +79,7 @@ export default {
       return chars.reduce((acc, curr) => {
         curr = curr.replace(/\s+/, '&nbsp;');
         //styleでinline-blockを当てないとxyアニメーションしない spanを作った段階でopacity0にしておかないと後からはできない。
-        return `${acc}<span class="char jp" style="display:inline-block; opacity: 0 ;transform: translate(0px, -40px)">${curr}</span>`;
+        return `${acc}<span class="char jp" style="display:inline-block; opacity: 0 ;transform: translate(0px, -30px)">${curr}</span>`;
       }, '');
     },
 
@@ -102,9 +102,9 @@ export default {
           //英語の文字をアニメーションさせる。
           en_nav[i].children.forEach((c, i) => {
             gsap.to(c, {
-              duration: 0.4,
-              delay: 0.1 * i,
-              y: 40,
+              duration: 0.3,
+              delay: 0.02 * i,
+              y: 30,
               opacity: 0,
               ease: 'Power4.easeInOut',
             });
@@ -112,8 +112,8 @@ export default {
           //日本語の文字をアニメーションさせる。
           jp_nav[i].children.forEach((c, i) => {
             gsap.to(c, {
-              duration: 0.4,
-              delay: 0.1 * i,
+              duration: 0.3,
+              delay: 0.02 * i,
               y: 0,
               opacity: 1,
               ease: 'Power4.easeInOut',
@@ -126,8 +126,8 @@ export default {
           //英語の文字をアニメーションさせる。
           en_nav[i].children.forEach((c, i) => {
             gsap.to(c, {
-              duration: 0.4,
-              delay: 0.1 * i,
+              duration: 0.3,
+              delay: 0.02 * i,
               y: 0,
               opacity: 1,
               ease: 'Power4.easeInOut',
@@ -136,9 +136,9 @@ export default {
           //日本語の文字をアニメーションさせる。
           jp_nav[i].children.forEach((c, i) => {
             gsap.to(c, {
-              duration: 0.4,
-              delay: 0.1 * i,
-              y: -40,
+              duration: 0.3,
+              delay: 0.02 * i,
+              y: -30,
               opacity: 0,
               ease: 'Power4.easeInOut',
             });

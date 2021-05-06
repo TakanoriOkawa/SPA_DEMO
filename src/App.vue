@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <HeaderNav></HeaderNav>
-    <!-- <header-nav></header-nav> -->
+    <header-nav></header-nav>
     <router-view />
 
     <footer class="footer">
