@@ -9,22 +9,22 @@
     </div>
 
     <ul class="header__nav">
-      <router-link to="/">
-        <li @click="resetAnimation">
+      <router-link class="header__nav__link" to="/">
+        <li class="header__nav__item" @click="resetAnimation">
           <div class="nav__en" v-html="navEn[0]"></div>
           <div class="nav__jp" v-html="navJp[0]"></div>
         </li>
       </router-link>
 
       <router-link class="header__nav__link" to="/service">
-        <li @click="resetAnimation">
+        <li class="header__nav__item" @click="resetAnimation">
           <div class="nav__en" v-html="navEn[1]"></div>
           <div class="nav__jp" v-html="navJp[1]"></div>
         </li>
       </router-link>
 
       <router-link class="header__nav__link" to="/about">
-        <li @click="resetAnimation">
+        <li class="header__nav__item" @click="resetAnimation">
           <div class="nav__en" v-html="navEn[2]"></div>
           <div class="nav__jp" v-html="navJp[2]"></div>
         </li>
@@ -152,45 +152,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-* {
-  font-size: 18px;
-}
-
-ul {
-  position: relative;
-  list-style: none;
-}
-
-li {
-  position: relative;
-  display: inline-block;
-  padding: 14px;
-  margin: 6px;
-  text-align: center;
-
-  &::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    border-bottom: 1px solid black;
-  }
-}
-
-.nav__en {
-  width: 100%;
-  letter-spacing: 3px;
-}
-
-.nav__jp {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  font-size: 16px;
-  transform: translate(-50%, -50%);
-  letter-spacing: 1px;
-}
-</style>
