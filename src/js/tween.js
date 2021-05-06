@@ -16,6 +16,7 @@ function startAnimation(){
 
 function topAnimation(){
   const tl =  gsap.timeline();
+
   tl.set('.mv',{
     opacity:0
   })
@@ -28,13 +29,23 @@ function topAnimation(){
     opacity: 1,
     right:'100%'
   })
-
+  tl.set('.circle',{
+    transformOrigin: 'center',
+  })
   // 読み込み時アニメーションスタート
   tl.to('.load', {
     delay: 0.4,
     duration: 0.6,
     right: 0,
   });
+
+  // svgをgsapで動かすとうまくいかない。
+  tl.to('.circle',{
+    duration:2,
+    strokeDashoffset: 0,
+    rotate:360,
+  })
+
   tl.from('.char', {
     duration: 1,
     stagger: { each: 0.03 },
@@ -61,12 +72,11 @@ function topAnimation(){
     ease: Back.easeIn,
     onComplete:mainVisualAnimation,
   })
-
 }
 
 function mainVisualAnimation(){
   const tl =  gsap.timeline();
-  console.log("メインビジュアル");
+
     //mvアニメーション
     tl.to('.mv', {
       duration:animationSpeed,
