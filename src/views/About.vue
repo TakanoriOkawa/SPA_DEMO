@@ -82,7 +82,7 @@ export default {
     const _this = this;
     setTimeout(function () {
       this.ob = new Scroll('.appear', _this._inviewAnima);
-    }, 1500);
+    }, 600);
   },
 };
 </script>
