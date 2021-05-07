@@ -15,9 +15,25 @@
 body {
   font-size: 1.6rem;
 }
-
+// headerスタイル
 .header__logo {
-  width: 130px;
+  width: 110px;
+}
+
+.header__nav {
+  padding-right: 0px;
+}
+
+.header__nav__item {
+  padding: 5px;
+  margin: 4px;
+}
+.nav__en {
+  font-size: 13px;
+}
+
+.nav__ja {
+  font-size: 10px;
 }
 
 //タイトル文字調整
@@ -42,6 +58,7 @@ body {
 
 .our {
   margin-bottom: 0px;
+  height: 100%;
   &__imgArea {
     order: 2;
   }
@@ -53,10 +70,12 @@ body {
 
 .service {
   margin-bottom: 0px;
+  height: 100%;
 }
 
 .news {
   margin-bottom: 0px;
+  height: 100%;
   &__imgArea {
     order: 2;
   }
