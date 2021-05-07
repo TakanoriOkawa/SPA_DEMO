@@ -15,21 +15,21 @@
             <router-link to="/about" class="our__link"> About </router-link>
           </div>
         </div>
-        <div class="our__imgArea left">
+        <div class="our__imgArea imgArea slide">
           <img
             src="../assets/image_02.jpg"
-            class="our__img"
+            class="our__img img"
             alt="私たちについて"
           />
         </div>
       </div>
+
       <div class="service">
         <div class="service__textArea appear">
           <div class="service__title">SERVICE</div>
           <div class="service__text">
             多くの新技術を活用した 数々のプロジェクトに携わっています
             弊社には新技術を活用した非公開実績も多数あります。
-            開発実績の一部が以下になります。
           </div>
 
           <div class="service__button">
@@ -39,11 +39,11 @@
           </div>
         </div>
 
-        <div class="service__imgArea appear">
+        <div class="service__imgArea imgArea slide">
           <img
             src="../assets/image_05.jpg"
             alt="サービス"
-            class="service__img"
+            class="service__img img"
           />
         </div>
       </div>
@@ -57,8 +57,12 @@
           </div>
         </div>
 
-        <div class="news__imgArea scale">
-          <img src="../assets/image_01.jpg" alt="ニュース" class="news__img" />
+        <div class="news__imgArea imgArea slide">
+          <img
+            src="../assets/image_01.jpg"
+            alt="ニュース"
+            class="news__img img"
+          />
         </div>
       </div>
     </div>
@@ -73,6 +77,7 @@ import {
   rightAnimation,
   leftAnimation,
   topAnimation,
+  loopFashText,
 } from '../js/tween';
 import Scroll from '../js/scroll';
 import { stopScroll } from '../js/scrollControll';
@@ -85,6 +90,7 @@ export default {
       ob2: '',
       ob3: '',
       ob4: '',
+      ob5: '',
     };
   },
   methods: {
@@ -108,6 +114,11 @@ export default {
         leftAnimation(el);
       }
     },
+    _slideImgAnima(el, inview) {
+      if (inview) {
+        el.classList.add('inview');
+      }
+    },
   },
   components: {
     MainVisual,
@@ -117,11 +128,13 @@ export default {
     stopScroll(); // マウススクロール停止
     topAnimation(); // GSAPアニメーション
     topThreeStart(); // THREEアニメーション
+    loopFashText(); // ループ文字から変更アニメーション
 
     this.ob = new Scroll('.appear', this._inviewAnima);
     this.ob2 = new Scroll('.right', this._rightAnima);
     this.ob3 = new Scroll('.left', this._leftAnima);
     this.ob4 = new Scroll('.scale', this._scaleAnima);
+    this.ob5 = new Scroll('.slide', this._slideImgAnima);
   },
 
   destroyed() {
@@ -132,11 +145,8 @@ export default {
 
 <style scoped lang="scss">
 .our__textArea,
-.our__imgArea,
 .service__textArea,
-.service__imgArea,
-.news__textArea,
-.news__imgArea {
+.news__textArea {
   opacity: 0;
 }
 </style>
