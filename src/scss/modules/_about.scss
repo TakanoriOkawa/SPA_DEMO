@@ -1,0 +1,129 @@
+// **** Aboutページのスタイル ****
+
+.top {
+  color: $cWhite;
+  text-align: center;
+
+  &__wrap {
+    position: relative;
+    height: 450px;
+    background: url('../assets/image_06.jpg') no-repeat;
+    background-size: cover;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      background-color: gray;
+      content: '';
+      opacity: 0.45;
+    }
+  }
+
+  &__textArea {
+    position: absolute;
+    z-index: 10;
+    margin: 50px auto 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__title {
+    letter-spacing: $letterSpace;
+    font-size: $subTitle;
+
+    @extend .mb-sm;
+  }
+
+  &__text {
+    margin: 0 auto;
+    padding: 10px;
+    width: 60%;
+    border-radius: 5px;
+    background-color: rgba(87, 87, 87, 0.4);
+    font-size: 2.2rem;
+  }
+}
+
+.table {
+  @extend .max-width;
+  @extend .mb-lg;
+  @extend .pt-lg;
+
+  &__title {
+    text-align: center;
+    letter-spacing: $letterSpace;
+    font-size: $subTitle;
+
+    @extend .mb-sm;
+  }
+
+  // テーブルのスタイル
+  table {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  td {
+    border-bottom: 1px solid $cBase;
+  }
+
+  tr:last-child td {
+    border: none;
+  }
+
+  td,
+  th {
+    padding: 20px;
+  }
+}
+
+.form {
+  background-color: $cBlack;
+  position: relative;
+
+  &__area {
+    padding: 60px 0;
+
+    @extend .max-width;
+  }
+  &__name,
+  &__text,
+  &__submit {
+    display: block;
+    margin: 0 auto 30px;
+    padding: 15px;
+    width: 70%;
+    border: 1px solid rgba($cWhite, 0.4);
+    border-radius: 5px;
+    color: $cWhite;
+    transition: all 0.4s ease;
+
+    &:focus {
+      box-shadow: 0 0 7px 3px rgb(46, 83, 107);
+    }
+  }
+
+  &__submit {
+    width: 20%;
+    text-align: center;
+    letter-spacing: $letterSpace;
+
+    &:hover {
+      background-color: $cWhite;
+      color: $cBlack;
+    }
+  }
+
+  &__title {
+    color: $cWhite;
+    text-align: center;
+    letter-spacing: $letterSpace;
+    font-size: $subTitle;
+
+    @extend .pt-sm;
+  }
+}

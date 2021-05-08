@@ -1,4 +1,6 @@
-@import './_base';
+@import './modules/base';
+@import './modules/service';
+@import './modules/about';
 
 //PC優先スタイルでつくっちゃったな。
 @media (max-width: 600px) {
