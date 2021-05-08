@@ -31,7 +31,7 @@ function initThree(){
   canvasSizeY = document.getElementById("app").clientHeight;
   
   renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector(".Service__mainCanvas"),
+    canvas: document.querySelector(".service__mainCanvas"),
     antialias: true,
     alpha: true,
   })
