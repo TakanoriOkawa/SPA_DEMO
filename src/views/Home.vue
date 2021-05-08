@@ -1,18 +1,18 @@
 <template>
-  <div class="home">
+  <main class="home">
     <main-visual></main-visual>
 
-    <div class="contents">
+    <section class="contents">
       <div class="our">
         <div class="our__textArea right">
-          <div class="our__title">ABOUT US</div>
+          <h2 class="our__title">ABOUT US</h2>
           <div class="our__text">
             私たちは、従来の開発の在り方を見直し、
             現代を生きる私たちに最も必要な 過程、プロセスを創造し続けます。
           </div>
 
           <div class="our__button">
-            <router-link to="/about" class="our__link"> About </router-link>
+            <router-link to="/about" class="our__link">About</router-link>
           </div>
         </div>
         <div class="our__imgArea imgArea slide">
@@ -24,33 +24,33 @@
         </div>
       </div>
 
-      <div class="service">
-        <div class="service__textArea appear">
-          <div class="service__title">SERVICE</div>
-          <div class="service__text">
+      <section class="servi">
+        <div class="servi__textArea appear">
+          <h2 class="servi__title">SERVICE</h2>
+          <div class="servi__text">
             多くの新技術を活用した 数々のプロジェクトに携わっています
             弊社には新技術を活用した非公開実績も多数あります。
           </div>
 
-          <div class="service__button">
-            <router-link to="/service" class="service__link">
+          <div class="servi__button">
+            <router-link to="/service" class="servi__link">
               Service
             </router-link>
           </div>
         </div>
 
-        <div class="service__imgArea imgArea slide">
+        <div class="servi__imgArea imgArea slide">
           <img
             src="../assets/image_05.jpg"
             alt="サービス"
-            class="service__img img"
+            class="servi__img img"
           />
         </div>
-      </div>
+      </section>
 
-      <div class="news">
+      <section class="news">
         <div class="news__textArea scale">
-          <div class="news__title">NEWS</div>
+          <h2 class="news__title">NEWS</h2>
           <div class="news__text">
             弊社の最新情報を掲載しています。エンジニアチームの技術ブログ「Try
             Blog」も随時更新中です。
@@ -64,9 +64,9 @@
             class="news__img img"
           />
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -145,7 +145,7 @@ export default {
 
 <style scoped lang="scss">
 .our__textArea,
-.service__textArea,
+.servi__textArea,
 .news__textArea {
   opacity: 0;
 }

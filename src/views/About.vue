@@ -1,9 +1,9 @@
 <template>
-  <div class="about">
-    <div class="top__wrap appear">
+  <main class="about">
+    <section class="top__wrap appear">
       <div class="top">
         <div class="top__textArea">
-          <div class="top__title">About</div>
+          <h2 class="top__title">About</h2>
           <div class="top__text">
             私たちは、従来の開発の在り方を見直し、
             現代を生きる私たちに最も必要な 過程、プロセスを創造し続けます。<br />
@@ -11,10 +11,10 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="table appear">
-      <div class="table__title">会社概要</div>
+    <section class="table appear">
+      <h2 class="table__title">会社概要</h2>
       <table>
         <tbody>
           <tr>
@@ -39,10 +39,10 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
 
-    <div class="form appear">
-      <div class="form__title">CONTACT</div>
+    <section class="form appear">
+      <h2 class="form__title">CONTACT</h2>
       <form class="form__area">
         <input type="text" class="form__name" placeholder="お名前" />
         <textarea
@@ -54,8 +54,8 @@
         ></textarea>
         <input type="submit" class="form__submit" value="送信" />
       </form>
-    </div>
-  </div>
+    </section>
+  </main>
 </template>
 
 <script>

@@ -1,48 +1,49 @@
 <template>
-  <div class="Service">
-    <div class="Service__canvas appear">
-      <canvas class="Service__mainCanvas"></canvas>
-    </div>
-    <h2 class="Service__title appear">Service</h2>
+  <main class="service">
+    <section class="service__canvas appear">
+      <canvas class="service__mainCanvas"></canvas>
+    </section>
+    <h2 class="service__title appear">Service</h2>
 
-    <div class="product appear">
+    <section class="product appear">
       <div class="product__textArea">
-        <div class="product__title">自社開発アプリ</div>
+        <h2 class="product__title">自社開発アプリ</h2>
         <div class="product__text">
           圧倒的に使いやすい勤怠管理システム、「TRY WORK」を始め、<br />大手医療メーカーと共同開発のアプリケーション、
           SES業界をよりよくするサービスをなどを開発中です。
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="ses appear">
+    <section class="ses appear">
       <div class="ses__textArea">
-        <div class="ses__title">SES・技術者派遣事業</div>
+        <h2 class="ses__title">SES・技術者派遣事業</h2>
         <div class="ses__text">
           お客様先にエンジニアが常駐し、技術提供するSES事業を展開しています。
           Web系、システム構築、ネットワーク・サーバーのインフラ設計と構築など、ニーズに即したエンジニアを提案します。
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="contract appear">
+    <section class="contract appear">
       <div class="contract__textArea">
-        <div class="contract__title">受託開発事業</div>
+        <h2 class="contract__title">受託開発事業</h2>
         <div class="contract__text">
           様々なシーンでの受託開発を得意としています。
           トータルソリューションのご提案から個別システム開発まで、幅広いニーズにご対応が可能な少数精鋭のエンジニアチームが対応します。
         </div>
       </div>
-    </div>
-    <div class="overseas appear">
+    </section>
+
+    <section class="overseas appear">
       <div class="overseas__textArea">
-        <div class="overseas__title">海外事業</div>
+        <h2 class="overseas__title">海外事業</h2>
         <div class="overseas__text">
           アジアを中心に、事業拡大中です。現地の技術者と共同で開発業務に当たっています。
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -81,8 +82,8 @@ export default {
 </script>
 
 <style lang="scss">
-.Service__canvas,
-.Service__title,
+.service__canvas,
+.service__title,
 .product,
 .ses,
 .contract,
@@ -90,7 +91,7 @@ export default {
   opacity: 0;
 }
 
-.Service__canvas {
+.service__canvas {
   position: absolute;
   top: 0;
   left: 0;
