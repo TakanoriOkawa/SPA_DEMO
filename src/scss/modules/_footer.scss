@@ -1,0 +1,14 @@
+// ***** footer *****
+.footer {
+  height: 170px;
+  background-color: $cBackGround;
+  color: $cWhite;
+  text-align: center;
+
+  &__nav {
+    @extend .pt-sm;
+  }
+  &__copy {
+    @extend .pt-sm;
+  }
+}

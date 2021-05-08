@@ -1,8 +1,13 @@
+@import './modules/utility';
+@import './modules/loadAnimation';
 @import './modules/base';
+@import './modules/header';
+@import './modules/footer';
+@import './modules/home';
 @import './modules/service';
 @import './modules/about';
 
 //PC優先スタイルでつくっちゃったな。
 @media (max-width: 600px) {
-  @import './breakpoints/_600down';
+  @import './breakpoints/600down';
 }
