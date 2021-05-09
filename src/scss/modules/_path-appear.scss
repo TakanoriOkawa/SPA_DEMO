@@ -1,0 +1,8 @@
+.path-appear {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transition: clip-path 1.4s ease-in;
+
+  &.inview {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}

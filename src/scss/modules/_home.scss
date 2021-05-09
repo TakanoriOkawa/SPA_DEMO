@@ -1,74 +1,4 @@
-// **** home ****
-
-// slide開始
-.imgArea {
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 100%;
-    bottom: 0;
-    z-index: 10;
-    background-color: gray;
-  }
-  // inviewした時の背景カバーアニメ
-  &.inview {
-    &::before {
-      animation-name: slide-anima;
-      animation-duration: 1s;
-      animation-timing-function: ease-in;
-      animation-fill-mode: forwards;
-    }
-  }
-}
-
-// inviewした時、画像のアニメーション
-
-.img {
-  opacity: 0;
-  .inview & {
-    animation-name: fade-anima;
-    animation-duration: 1s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-  }
-}
-
-@keyframes slide-anima {
-  0% {
-    left: 0;
-    right: 100%;
-  }
-  50% {
-    left: 0;
-    right: 0;
-  }
-  100% {
-    left: 100%;
-    right: 0;
-  }
-}
-
-@keyframes fade-anima {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  50.1% {
-    opacity: 1;
-    transform: scale(1.5);
-  }
-  100% {
-    opacity: 1;
-  }
-}
-// <slide終了>
+// **** homeページのスライド ****
 
 .mv {
   position: absolute;
@@ -107,7 +37,7 @@
     text-align: center;
     letter-spacing: 15px;
     font-weight: bold;
-    font-size: $subTitle;
+    font-size: $title;
     line-height: 3;
     transform: translate(-50%, -50%);
   }
@@ -115,7 +45,7 @@
 
 .contents {
   margin-top: 82vh;
-  background-color: rgb(175, 175, 175);
+  background-color: rgb(79, 93, 119);
 
   @extend .pb-lg;
   @extend .pt-lg;
@@ -126,71 +56,7 @@
   height: 400px;
 
   @extend .max-width;
-  @extend .mb-lg;
-
-  &__imgArea {
-    flex-basis: 50%;
-    order: 1;
-    height: 100%;
-  }
-
-  &__title,
-  &__text {
-    text-align: center;
-
-    @extend .pt-sm;
-  }
-
-  &__text {
-    margin: 0 auto 25px;
-    width: 90%;
-  }
-
-  &__button {
-    text-align: center;
-
-    @extend .pb-sm;
-  }
-
-  &__link {
-    position: relative;
-    display: inline-block;
-    padding: 15px;
-    border: 1px solid $cBase;
-    letter-spacing: $letterSpace;
-    transition: all 0.4s ease;
-
-    &:hover {
-      border-radius: 10px;
-      background-color: $cBlack;
-      color: $cWhite;
-    }
-
-    &::after,
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: -1;
-      color: $cBlack;
-      content: '×';
-      font-size: 4rem;
-      opacity: 0;
-      transition: opacity 0.6s ease, transform 0.4s ease, z-index 0.3s ease;
-      transform: translate(-50%, -50%);
-    }
-
-    &:hover::after {
-      z-index: 0;
-      opacity: 1;
-      transform: translate(400%, -50%) rotate(180deg);
-    }
-    &:hover::before {
-      z-index: 0;
-      opacity: 1;
-      transform: translate(-500%, -50%) rotate(-180deg);
-    }
-  }
+  @extend .mb-slg;
 
   &__title {
     letter-spacing: $letterSpace;
@@ -207,31 +73,57 @@
   &__textArea {
     flex-basis: 50%;
     order: 2;
-    background-color: $cWhite;
+    position: relative;
+    z-index: 100;
+  }
+
+  &__text-inner {
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    color: $cWhite;
+  }
+
+  &__imgArea {
+    flex-basis: 50%;
+    order: 1;
+    height: 100%;
+  }
+
+  &__title,
+  &__text {
+    text-align: center;
+    @extend .pt-sm;
+  }
+
+  &__text {
+    margin: 0 auto 25px;
+    width: 90%;
   }
 }
 
 .servi {
-  display: flex;
-  height: 410px;
+  position: relative;
 
-  @extend .max-width;
-  @extend .mb-lg;
+  &__outer {
+    display: flex;
+    height: 410px;
 
-  &__imgArea {
-    flex-basis: 50%;
-    height: 100%;
-  }
-
-  &__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @extend .max-width;
+    @extend .mb-slg;
   }
 
   &__textArea {
     flex-basis: 50%;
-    background-color: $cWhite;
+    position: relative;
+    z-index: 100;
+  }
+
+  &__text-inner {
+    position: absolute;
+    top: 16%;
+    right: -10%;
+    color: $cWhite;
   }
 
   &__title,
@@ -251,50 +143,29 @@
     width: 90%;
   }
 
-  &__button {
-    text-align: center;
-
-    @extend .pb-sm;
+  &__imgArea {
+    flex-basis: 50%;
+    height: 100%;
   }
 
-  &__link {
-    position: relative;
-    display: inline-block;
-    padding: 15px;
-    border: 1px solid $cBase;
-    letter-spacing: $letterSpace;
-    transition: all 0.4s ease;
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    &:hover {
-      border-radius: 10px;
-      background-color: $cBlack;
-      color: $cWhite;
-    }
+  &__company {
+    position: absolute;
+    top: -30%;
+    left: 1%;
+  }
 
-    &::after,
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: -1;
-      color: $cBlack;
-      content: '×';
-      font-size: 4rem;
-      opacity: 0;
-      transition: opacity 0.6s ease, transform 0.4s ease, z-index 0.3s ease;
-      transform: translate(-50%, -50%);
-    }
-
-    &:hover::after {
-      z-index: 0;
-      opacity: 1;
-      transform: translate(400%, -50%) rotate(180deg);
-    }
-    &:hover::before {
-      z-index: 0;
-      opacity: 1;
-      transform: translate(-500%, -50%) rotate(-180deg);
-    }
+  &__company__text {
+    font-family: serif;
+    line-height: 1;
+    font-size: 5rem;
+    opacity: 0;
+    color: white;
   }
 }
 
@@ -303,12 +174,25 @@
   height: 400px;
 
   @extend .max-width;
-  @extend .mb-lg;
+  @extend .mb-slg;
 
-  &__imgArea {
+  &__title {
+    letter-spacing: $letterSpace;
+    font-size: $subTitle;
+  }
+
+  &__textArea {
     flex-basis: 50%;
-    order: 1;
-    height: 100%;
+    order: 2;
+    position: relative;
+    z-index: 100;
+  }
+
+  &__text-inner {
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    color: $cWhite;
   }
 
   &__title,
@@ -327,6 +211,19 @@
     text-align: center;
 
     @extend .pb-sm;
+  }
+
+  &__imgArea {
+    flex-basis: 50%;
+    order: 1;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
   }
 
   &__link {
@@ -368,22 +265,13 @@
       transform: translate(-500%, -50%) rotate(-180deg);
     }
   }
+}
 
-  &__title {
-    letter-spacing: $letterSpace;
-    font-size: $subTitle;
-  }
-
-  &__img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-  }
-
-  &__textArea {
-    flex-basis: 50%;
-    order: 2;
-    background-color: $cWhite;
-  }
+// GSAPの初期値のスタイル
+.our__text,
+.servi__text,
+.news__text,
+.our__button,
+.servi__button {
+  opacity: 0;
 }

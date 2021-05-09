@@ -1,0 +1,49 @@
+.our,
+.servi {
+  &__button {
+    text-align: center;
+
+    @extend .pb-sm;
+  }
+
+  &__link {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    border: 1px solid $cWhite;
+    letter-spacing: $letterSpace;
+    transition: all 0.4s ease;
+
+    &:hover {
+      border-radius: 10px;
+      border: 1px solid $cBlack;
+      background-color: $cBlack;
+      color: $cWhite;
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      color: $cBlack;
+      content: '×';
+      font-size: 4rem;
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.4s ease, z-index 0.3s ease;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover::after {
+      z-index: 0;
+      opacity: 1;
+      transform: translate(400%, -50%) rotate(180deg);
+    }
+    &:hover::before {
+      z-index: 0;
+      opacity: 1;
+      transform: translate(-500%, -50%) rotate(-180deg);
+    }
+  }
+}
