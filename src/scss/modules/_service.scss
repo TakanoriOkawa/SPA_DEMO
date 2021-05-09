@@ -1,4 +1,24 @@
 // **** Serviceページのスタイル *****
+// Three.js関連
+.service__title,
+.ses,
+.product,
+.contract,
+.overseas {
+  opacity: 0;
+}
+
+.service__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+}
+
 .service {
   text-align: center;
 
@@ -6,7 +26,7 @@
     position: relative;
     display: inline-block;
     text-align: center;
-    font-size: $subTitle;
+    font-size: $title;
     letter-spacing: $letterSpace;
 
     @extend .mb-sm;
@@ -50,7 +70,7 @@
 
   &__title {
     color: $cWhite;
-    font-size: $subTitle;
+    font-size: $title;
 
     @extend .mb-sm;
   }
@@ -104,7 +124,7 @@
 
   &__title {
     color: $cWhite;
-    font-size: $subTitle;
+    font-size: $title;
 
     @extend .mb-sm;
   }
@@ -158,7 +178,7 @@
 
   &__title {
     color: $cWhite;
-    font-size: $subTitle;
+    font-size: $title;
 
     @extend .mb-sm;
   }
@@ -212,7 +232,7 @@
 
   &__title {
     color: $cWhite;
-    font-size: $subTitle;
+    font-size: $title;
 
     @extend .mb-sm;
   }

@@ -3,9 +3,11 @@ $cWhite: #fff;
 $cBlack: #000;
 $cBase: #333;
 $letterSpace: 2.5px;
-$subTitle: 3.5rem;
-$subTitle600Down: 2.5rem;
+$title: 3.5rem;
+$title600Down: 2.2rem;
 
+$subTitle: 7rem;
+$subTitle600Down: 2.5rem;
 $cBackGround: rgb(131, 131, 131);
 
 .max-width {
@@ -15,6 +17,10 @@ $cBackGround: rgb(131, 131, 131);
 
 .mb-lg {
   margin-bottom: 80px;
+}
+
+.mb-slg {
+  margin-bottom: 170px;
 }
 
 .mb-sm {

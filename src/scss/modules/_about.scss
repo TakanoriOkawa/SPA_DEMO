@@ -33,7 +33,7 @@
 
   &__title {
     letter-spacing: $letterSpace;
-    font-size: $subTitle;
+    font-size: $title;
 
     @extend .mb-sm;
   }
@@ -56,7 +56,7 @@
   &__title {
     text-align: center;
     letter-spacing: $letterSpace;
-    font-size: $subTitle;
+    font-size: $title;
 
     @extend .mb-sm;
   }
@@ -122,7 +122,7 @@
     color: $cWhite;
     text-align: center;
     letter-spacing: $letterSpace;
-    font-size: $subTitle;
+    font-size: $title;
 
     @extend .pt-sm;
   }
