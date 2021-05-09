@@ -1,12 +1,6 @@
-.service,
-.our,
-.news {
-  flex-direction: column;
-}
-
 .mv {
   &__text {
-    font-size: 2.2rem;
+    font-size: $title600Down;
     width: 95%;
     margin: 0 auto;
   }
@@ -36,9 +30,16 @@ body {
   font-size: 10px;
 }
 
+// flexをcolumnに修正
+.servi__outer,
+.our,
+.news {
+  flex-direction: column;
+}
+
 //タイトル文字調整
 .our__title,
-.service__title,
+.servi__title,
 .news__title,
 .Service__title,
 .product__title,
@@ -63,25 +64,53 @@ body {
     order: 2;
   }
 
+  //絶対配置の打ち消し
   &__textArea {
     order: 1;
+    position: static;
+  }
+
+  &__text-inner {
+    position: static;
   }
 }
 
-.service {
-  margin-bottom: 0px;
-  height: 100%;
+.servi {
+  &__outer {
+    margin-bottom: 0px;
+    height: 100%;
+  }
+
+  //絶対配置の打ち消し
+  &__textArea {
+    position: static;
+  }
+
+  &__text-inner {
+    position: static;
+  }
+
+  &__company {
+    display: none;
+  }
 }
 
 .news {
   margin-bottom: 0px;
   height: 100%;
-  &__imgArea {
-    order: 2;
-  }
 
+  //絶対配置の打ち消し
   &__textArea {
     order: 1;
+    position: static;
+  }
+
+  &__text-inner {
+    position: static;
+  }
+
+  &__imgArea {
+    order: 2;
   }
 }
 
