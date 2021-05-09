@@ -71,7 +71,7 @@ export default {
   methods: {
     _inviewAnima(el, inview) {
       if (inview) {
-        el.classList.add('.inview');
+        el.classList.add('inview');
         scaleAnimation(el);
       }
     },

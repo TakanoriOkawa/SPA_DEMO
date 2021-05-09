@@ -19,6 +19,7 @@ body {
 
   &__title {
     overflow: hidden;
+    text-align: center;
     color: $cWhite;
     font-size: 80px;
     &.char {

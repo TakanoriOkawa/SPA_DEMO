@@ -1,6 +1,6 @@
 <template>
   <main class="service">
-    <section class="service__canvas appear">
+    <section class="service__canvas">
       <canvas class="service__mainCanvas"></canvas>
     </section>
     <h2 class="service__title appear">Service</h2>
@@ -55,13 +55,19 @@ export default {
   data() {
     return {
       ob: '',
+      ob2: '',
     };
   },
   methods: {
     _inviewAnima(el, inview) {
       if (inview) {
-        el.classList.add('.inview');
         moveAnimation(el);
+      }
+    },
+
+    _inviewAddClass(el, inview) {
+      if (inview) {
+        el.classList.add('inview');
       }
     },
   },
@@ -72,6 +78,7 @@ export default {
     const _this = this;
     setTimeout(function () {
       this.ob = new Scroll('.appear', _this._inviewAnima);
+      this.ob2 = new Scroll('.cover-slide', _this._inviewAddClass);
     }, 600);
   },
 
@@ -80,25 +87,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.service__canvas,
-.service__title,
-.product,
-.ses,
-.contract,
-.overseas {
-  opacity: 0;
-}
-
-.service__canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -10;
-  width: 100%;
-  height: 100%;
-}
-</style>
