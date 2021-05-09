@@ -45,7 +45,7 @@ function initThree(){
 
 function initCam(){
   camera = new THREE.PerspectiveCamera(60,innerWidth / innerHeight);
-  camera.position.set(0,0,18);
+  camera.position.set(0,0,6);
 }
 
 function initLoader(){
@@ -55,11 +55,11 @@ function initLoader(){
 
 function initObject(){
   pointsGeometry = new THREE.BufferGeometry();
-  const pointsCount = 7000;
+  const pointsCount = 1000;
   const posArray = new Float32Array(pointsCount * 3);
   
   for(let i = 0; i < pointsCount * 3; i++){
-    posArray[i] = (Math.random() - 0.5) * 30; 
+    posArray[i] = (Math.random() - 0.5) * 15; 
   }
 
   pointsGeometry.setAttribute('position', new THREE.BufferAttribute(posArray,3));
