@@ -1,7 +1,7 @@
 @mixin animation(
   $name,
   $duration: 1s,
-  $timing-function: ease-in,
+  $timing-function: ease-out,
   $delay: 0,
   $iteration-count: 1,
   $direction: normal,
