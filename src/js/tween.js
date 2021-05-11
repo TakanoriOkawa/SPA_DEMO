@@ -112,7 +112,7 @@ function mainVisualAnimation(){
       ease: Back.easeIn,
       opacity: 0,
       color:'skyblue',
-      scale: 2,
+      scale: 4,
       onComplete:moveScroll, //scroll解除
     });
 }
