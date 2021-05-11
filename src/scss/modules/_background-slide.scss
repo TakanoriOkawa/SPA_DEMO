@@ -1,0 +1,28 @@
+.cover-slide-background {
+  // ロゴ背景
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -5%;
+
+    width: 100%;
+    height: 0%;
+
+    background-color: rgba(162, 162, 162, 0.6);
+  }
+
+  &.inview::before {
+    @include animation($name: background-color, $duration: 0.6s);
+  }
+}
+
+@keyframes background-color {
+  0% {
+    height: 0%;
+  }
+
+  100% {
+    height: 300%;
+  }
+}
