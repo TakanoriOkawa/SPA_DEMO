@@ -56,7 +56,7 @@
         </div>
 
         <!-- /.servi__outer -->
-        <div class="servi__company">
+        <div class="servi__company cover-slide-background">
           <h2
             class="servi__company__text left"
             @mouseenter="enterAnima"
@@ -112,6 +112,7 @@ export default {
       ob2: '',
       ob3: '',
       ob4: '',
+      ob5: '',
       title: 'TRY+TECHNOLOGY',
       splitTitle: [],
     };
@@ -140,7 +141,7 @@ export default {
       let result = this._splite(chars);
       let replaceText = result.replace(
         //記号の前は全て\をつける。
-        /<span class="char" style="display:inline-block;">\+<\/span>/g,
+        /<span class="char1" style="display:inline-block;">\+<\/span>/g,
         '<br>'
       );
 
@@ -151,12 +152,12 @@ export default {
       return chars.reduce((acc, curr) => {
         curr = curr.replace(/\s+/, '&nbsp;');
         //styleでinline-blockを当てないとxyアニメーションしない
-        return `${acc}<span class="char" style="display:inline-block;">${curr}</span>`;
+        return `${acc}<span class="char1" style="display:inline-block;">${curr}</span>`;
       }, '');
     },
 
     enterAnima() {
-      gsap.to('.char', {
+      gsap.to('.char1', {
         duration: 0.3,
         color: 'skyblue',
         stagger: { each: 0.01, from: 'random' },
@@ -165,7 +166,7 @@ export default {
     },
 
     leaveAnima() {
-      gsap.to('.char', {
+      gsap.to('.char1', {
         duration: 0.3,
         color: 'white',
         stagger: { each: 0.01, from: 'random' },
@@ -188,6 +189,7 @@ export default {
     this.ob2 = new Scroll('.left', this._leftAnima);
     this.ob3 = new Scroll('.cover-slide', this._inviewAddClass);
     this.ob4 = new Scroll('.path-appear', this._inviewAddClass); // inviewクラス付与
+    this.ob5 = new Scroll('.cover-slide-background', this._inviewAddClass); // inviewクラス付与
   },
 
   destroyed() {
