@@ -13,12 +13,13 @@
     border: 1px solid $cWhite;
     letter-spacing: $letterSpace;
     transition: all 0.4s ease;
+    color: $cWhite;
 
     &:hover {
       border-radius: 10px;
       border: 1px solid $cBlack;
-      background-color: $cBlack;
-      color: $cWhite;
+      background-color: $cWhite;
+      color: $cBase;
     }
 
     &::after,
@@ -27,7 +28,8 @@
       top: 50%;
       left: 50%;
       z-index: -1;
-      color: $cBlack;
+
+      color: $cWhite;
       content: '×';
       font-size: 4rem;
       opacity: 0;

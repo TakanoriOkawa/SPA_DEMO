@@ -7,6 +7,10 @@
 
   &__nav {
     @extend .pt-sm;
+
+    &__link {
+      color: $cWhite;
+    }
   }
   &__copy {
     @extend .pt-sm;
