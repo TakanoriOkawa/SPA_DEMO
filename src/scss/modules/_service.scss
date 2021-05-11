@@ -1,19 +1,12 @@
 // **** Serviceページのスタイル *****
 // Three.js関連
-.service__title,
-.ses,
-.product,
-.contract,
-.overseas {
-  opacity: 0;
-}
 
 .service__canvas {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   z-index: -10;
   width: 100%;
   height: 100%;
@@ -26,46 +19,60 @@
     position: relative;
     display: inline-block;
     text-align: center;
-    font-size: $title;
     letter-spacing: $letterSpace;
-
+    font-size: $title;
     @extend .mb-sm;
+  }
+}
+
+@keyframes chars-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .product {
   position: relative;
   width: 100%;
+  height: 400px;
 
   @extend .max-width;
   @extend .mb-lg;
-  @extend .pb-lg;
-  @extend .pt-lg;
 
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -5;
-    background-color: $cBase;
-    content: '';
-    opacity: 0.45;
+  &__textArea {
+    position: relative;
+    z-index: 20;
+    text-shadow: 5px 5px 6px rgb(123, 123, 123);
+
+    @extend .pb-lg;
+    @extend .pt-lg;
   }
 
-  &::after {
+  &__text {
+    background-color: rgba(79, 93, 119, 0.4);
+  }
+
+  &__img-area {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
     left: 0;
-    z-index: -10;
-    background: url(../assets/image_05.jpg) no-repeat;
-    background-size: cover;
-    box-shadow: 0 0 15px $cBase;
-    content: '';
-    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {
+    // img要素の擬似要素は使えない
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
   }
 
   &__title {
@@ -89,37 +96,34 @@
 
   @extend .max-width;
   @extend .mb-lg;
-  @extend .pb-lg;
-  @extend .pt-lg;
 
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -5;
-    background-color: $cBase;
-    content: '';
-    opacity: 0.45;
+  &__textArea {
+    position: relative;
+    z-index: 100;
+    text-shadow: 5px 5px 6px rgb(123, 123, 123);
+
+    @extend .pb-lg;
+    @extend .pt-lg;
   }
 
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -10;
-    background: url(../assets/image_04.jpg) no-repeat;
-    background-size: cover;
-    box-shadow: 0 0 15px $cBase;
-    content: '';
-    opacity: 0.8;
+  &__text {
+    background-color: rgba(79, 93, 119, 0.4);
   }
 
-  &__imgArea {
-    width: 300px;
+  &__img-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
   }
 
   &__title {
@@ -143,37 +147,34 @@
 
   @extend .max-width;
   @extend .mb-lg;
-  @extend .pb-lg;
-  @extend .pt-lg;
 
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -5;
-    background-color: $cBase;
-    content: '';
-    opacity: 0.45;
+  &__textArea {
+    position: relative;
+    z-index: 100;
+    text-shadow: 5px 5px 6px rgb(123, 123, 123);
+
+    @extend .pb-lg;
+    @extend .pt-lg;
   }
 
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -10;
-    background: url(../assets/image_01.jpg) no-repeat;
-    background-size: cover;
-    box-shadow: 0 0 15px $cBase;
-    content: '';
-    opacity: 0.8;
+  &__text {
+    background-color: rgba(79, 93, 119, 0.4);
   }
 
-  &__imgArea {
-    width: 300px;
+  &__img-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
   }
 
   &__title {
@@ -197,37 +198,34 @@
 
   @extend .max-width;
   @extend .mb-lg;
-  @extend .pb-lg;
-  @extend .pt-lg;
 
-  &::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -5;
-    background-color: $cBase;
-    content: '';
-    opacity: 0.45;
+  &__textArea {
+    position: relative;
+    z-index: 100;
+    text-shadow: 5px 5px 6px rgb(123, 123, 123);
+
+    @extend .pb-lg;
+    @extend .pt-lg;
   }
 
-  &::after {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -10;
-    background: url(../assets/image_07.jpg) no-repeat;
-    background-size: cover;
-    box-shadow: 0 0 15px $cBase;
-    content: '';
-    opacity: 0.8;
+  &__text {
+    background-color: rgba(79, 93, 119, 0.4);
   }
 
-  &__imgArea {
-    width: 300px;
+  &__img-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
   }
 
   &__title {
@@ -244,4 +242,11 @@
     border: 1px solid $cWhite;
     color: $cWhite;
   }
+}
+
+.product__text,
+.ses__text,
+.contract__text,
+.overseas__text {
+  opacity: 0;
 }
